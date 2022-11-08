@@ -5,20 +5,19 @@ class Conta
     // Encapsulamento: expor para o usuário apenas o necessário
 
 //  Atributos
-    private $id;
-    private $nomeTitular;
+    private $titular; // Composição de classes -> Conta recebe Titular
     private $saldo;
-// Atributos estáticos (informação da classe)
+//  Atributos estáticos (informação da classe)
     private static $numeroDeContas;
 //  Construtor
-    public function __construct(int $_id, string $_nomeTitular)
+    public function __construct(Titular $_titular)
     {
         echo "Criando nova conta..." . PHP_EOL;
-        $this->verificaNome($_nomeTitular);
-        $this->id = $_id;       
+        $this->titular = $_titular;      
         $this->saldo = 0;
         self::$numeroDeContas++;
     }
+
 //  Destrutor (Garbage Collector)
 
     // o GC verifica se a memória está armazenando uma referência abandonada e a exclui do programa
@@ -40,29 +39,17 @@ class Conta
 
     public function getId() : int
     {
-        return $this->id;
+        return $this->titular->getId();
     }
 
     public function getNomeTitular() : string
     {
-        return $this->nomeTitular;
+        return $this->titular->getNome();
     } 
 
     public function getSaldo() : float
     {
         return $this->saldo;
-    }
-
-//  Setters
-
-    public function setId(int $id) : void
-    {
-        $this->id = $id;
-    }
-
-    public function setNomeTitular(string $nome) : void
-    {
-        $this->nomeTitular = $nome;
     }
 
 //  Métodos públicos
@@ -95,15 +82,6 @@ class Conta
         $this->saldo -= $valor;
         $contaDestino->saldo += $valor;
         echo "Valor transferido com sucesso" . PHP_EOL;
-    }
-//  Métodos privados
-    private function verificaNome(string $nome) : void
-    {
-        if(strlen($nome) < 5){
-            echo 'Nome deve ter pelo menos 5 caracteres';
-            exit();
-        }
-        $this->nomeTitular = $nome;
     }
 }
 ?>

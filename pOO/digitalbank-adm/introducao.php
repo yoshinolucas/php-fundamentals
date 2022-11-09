@@ -1,4 +1,5 @@
 <?php
+namespace DigitalBankAdm;
 use DigitalBankAdm\models\Funcionario\Funcionario;
 use DigitalBankAdm\models\Endereco;
 
@@ -17,5 +18,4 @@ $funcionario = new Funcionario(
 echo $endereco->getRua();
 echo $funcionario->getNome();
 echo $funcionario->getEndereco();
-
 ?>

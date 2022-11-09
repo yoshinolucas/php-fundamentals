@@ -1,4 +1,5 @@
 <?php
+namespace DigitalBankAdm\models;
 class Endereco
 {
     private $estado;

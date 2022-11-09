@@ -1,6 +1,6 @@
 <?php
-require 'src/models/Endereco.php';
-require 'src/models/Funcionario.php';
+use DigitalBankAdm\models\Funcionario\Funcionario;
+use DigitalBankAdm\models\Endereco;
 
 $endereco = new Endereco(
     'SP',

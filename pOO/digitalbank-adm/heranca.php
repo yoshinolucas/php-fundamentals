@@ -1,9 +1,8 @@
 <?php
-require 'src/models/Funcionario.php';
-require 'src/models/Endereco.php';
-require 'src/models/Estagiario.php';
-require 'src/models/Gerente.php';
+use DigitalBankAdm\models\Funcionario\Gerente;
+use DigitalBankAdm\models\Endereco;
 
-$estagiario = new Estagiario();
-
+$ger = new Gerente(1,'Lucas','42112314',
+new Endereco('SP','SP','Jardim Soraia','rua nicola','3'));
+var_dump($ger);
 ?>

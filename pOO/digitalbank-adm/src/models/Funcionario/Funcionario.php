@@ -1,4 +1,6 @@
 <?php
+namespace DigitalBankAdm\models\Funcionario;
+use DigitalBankAdm\models\Endereco;
 class Funcionario
 {
     private $nome;
@@ -10,6 +12,7 @@ class Funcionario
         string $cpf,
         Endereco $endereco)
     {
+        $this->validaNome($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
@@ -28,6 +31,16 @@ class Funcionario
     public function getEndereco() : string
     {
         return $this->endereco->getEnderecoCompleto() . PHP_EOL;
+    }
+
+    public function validaNome(string $nome)
+    {
+        if(strlen($nome) >= 5) {
+            return $nome;
+        } else {
+            echo 'Nome inválido!';
+            exit;
+        };
     }
 }
 ?>

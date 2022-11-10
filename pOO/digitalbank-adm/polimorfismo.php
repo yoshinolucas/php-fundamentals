@@ -2,11 +2,8 @@
 namespace DigitalBankAdm;
 require_once 'src/includes/autoloader.php';
 
-use DigitalBankAdm\models\Conta\Conta;
-use DigitalBankAdm\models\Conta\ContaCorrente;
-use DigitalBankAdm\models\Conta\ContaPoupanca;
+use DigitalBankAdm\models\Conta\{ContaCorrente, ContaPoupanca, Titular};
 use DigitalBankAdm\models\Endereco;
-use DigitalBankAdm\models\Conta\Titular;
 
 $conta = new ContaCorrente(
     new Titular(1, 'Lucas', 
@@ -20,7 +17,6 @@ new Endereco('SP', 'SP', 'Jardim Soraia',
     'Rua Nicola', '49')));
 
 $conta->transfere($conta2, 400);
-
 
 $conta->depositar(500);
 $conta->sacar(100);

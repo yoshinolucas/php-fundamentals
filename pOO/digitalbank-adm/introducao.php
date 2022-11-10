@@ -1,5 +1,6 @@
 <?php
 namespace DigitalBankAdm;
+require_once 'src/includes/autoloader.php';
 use DigitalBankAdm\models\Funcionario\Funcionario;
 use DigitalBankAdm\models\Endereco;
 

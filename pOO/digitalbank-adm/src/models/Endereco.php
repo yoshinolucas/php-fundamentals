@@ -51,5 +51,17 @@ class Endereco
     {
         return $this->numero . PHP_EOL;
     }
+
+    public function __toString() : string
+    {
+        return "{$this->rua}";
+    }
+
+    public function __get($attr):string
+    {
+        $attrUp = ucfirst($attr);
+        $metodo = "get".$attrUp;
+        return $this->$metodo();
+    }
 }
 ?>

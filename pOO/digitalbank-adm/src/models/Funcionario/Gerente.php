@@ -1,7 +1,9 @@
 <?php
 namespace DigitalBankAdm\models\Funcionario;
+
+use DigitalBankAdm\models\Autenticavel;
 use DigitalBankAdm\models\Endereco;
-class Gerente extends Funcionario 
+class Gerente extends Funcionario implements Autenticavel
 {
     private $id_gerente;
     public function __construct(
@@ -24,5 +26,9 @@ class Gerente extends Funcionario
         return $this->getSalario();
     }
 
+    public function autentica(string $senha): bool
+    {
+        return $senha == 'gerente123' ? true : false;
+    }
 }
 ?>

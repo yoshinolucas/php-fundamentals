@@ -1,24 +1,36 @@
 <?php
 namespace DigitalBankAdm;
-require_once 'src/includes/autoloader.php';
+require 'src/includes/autoloader.php';
 
-use DigitalBankAdm\models\Conta\{ContaCorrente, ContaPoupanca, Titular};
 use DigitalBankAdm\models\Endereco;
+use DigitalBankAdm\models\Funcionario\Gerente;
+use DigitalBankAdm\models\Funcionario\Estagiario;
 
-$conta = new ContaCorrente(
-    new Titular(1, 'Lucas', 
-    new Endereco('SP'
-    , 'SP', 'Jardim Soraia',
-     'Rua Nicola', '48')));
 
-$conta2 = new ContaPoupanca(
-new Titular(1, 'Lucas 2', 
-new Endereco('SP', 'SP', 'Jardim Soraia',
-    'Rua Nicola', '49')));
+$umGerente = new Gerente(
+    1, 
+    'Lucas',
+    '44260503839',
+    3000,
+    new Endereco(
+        'SP',
+        'SP',
+        'Jardim Soraia',
+        'Rua Nicola',
+        '48'));
 
-$conta->transfere($conta2, 400);
+$umEstagiario = new Estagiario(
+    2,
+    'Ana Maria',
+    '44260503840',
+    1500,
+    new Endereco(
+        'RJ',
+        'RJ',
+        'Jardim Outro',
+        'Rua Outro',
+        '49'));
 
-$conta->depositar(500);
-$conta->sacar(100);
-echo $conta->getSaldo();
-?>
+var_dump($umEstagiario);
+
+

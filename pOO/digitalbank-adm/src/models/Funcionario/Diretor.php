@@ -2,9 +2,10 @@
 
 namespace DigitalBankAdm\models\Funcionario;
 
+use DigitalBankAdm\models\Autenticavel;
 use DigitalBankAdm\models\Endereco;
 
-class Diretor extends Funcionario
+class Diretor extends Funcionario implements Autenticavel
 {
     private $id_diretor;
 
@@ -19,8 +20,13 @@ class Diretor extends Funcionario
         return $this->getSalario() * 2;
     }
 
-    public function autentica() : bool
+    public function autentica(string $senha) : bool
     {
-        return true;
+        if($senha == '12345'){
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 }

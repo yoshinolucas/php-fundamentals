@@ -1,0 +1,12 @@
+{
+    "name": "yoshinolucas/buscador-cursos",
+    "description": "Projeto que busca os cursos no site da Alura",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Lucas Yudi Yoshino",
+            "email": "lucas.yudi7@gmail.com"
+        }
+    ],
+    "require": {}
+}

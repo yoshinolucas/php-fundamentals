@@ -2,27 +2,30 @@
 $tries = 0;
 $limitTries = 3;
 
-$fTries = 0;
-
 function someFunction($try): void{
-    $numTry = $try;
     if($try != 4) {
-        throw new Exception("Erro tentativa ".$numTry);
+        throw new Exception("Erro tentativa ". $try, 78);
     } else {
-        print('Sucesso');
+        print('Sucesso' . PHP_EOL);
     }
 }
 
-while(true){
-    try {
-        $fTries++;
-        someFunction($fTries);
-        break;
-    } catch(Exception $e) {
-        print('Carregando' . PHP_EOL);
-        sleep(2);
-        if(++$tries == $limitTries) throw $e;
+try {
+    while(true){
+        try {
+            $tries++;
+            someFunction($tries);
+            break;
+        } catch(Exception $e) {
+            print("Erro! ".$e->getCode()." Tentativa ".$tries." de ".$limitTries." Mensagem: " .$e. "" . PHP_EOL);
+            if($tries == $limitTries) throw $e;
+            sleep(2);
+        }
     }
+} catch(Exception $e) {
+    print("Finalizando com erro" . PHP_EOL);
+    exit;
 }
 
-print("finalizando");
+
+print("Finalizando com sucesso");
